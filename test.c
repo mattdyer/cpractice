@@ -13,7 +13,7 @@ int main() {
    
    pointer = &printHello;
    
-   *pointer();
+   pointer();
    
    printf("pointer: %x\n", pointer);
    
