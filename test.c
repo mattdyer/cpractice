@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-void printHello(char *name);
-void talk(void (*func)(char *name), char *name);
+//void printHello(char *name);
+//void talk(void (*func)(char *name), char *name);
 
 void printHello(char *name){
    printf("Hello %s\n", name);
