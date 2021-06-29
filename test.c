@@ -1,21 +1,37 @@
 #include <stdio.h>
 
-void printHello();
+void printHello(char *name);
+void talk(void (*func)(char *name), char *name);
 
-void printHello(){
-   printf("Hello World!\n");
+void printHello(char *name){
+   printf("Hello %s\n", name);
+}
+
+void printGoodbye(char *name){
+   printf("Goodbye %s\n", name);
+}
+
+void talk(void (*func)(char *name), char *name){
+   func(name);
 }
 
 int main() {
    
    int number = 10;
-   void (*pointer)();
+   void (*helloPointer)(char *);
+   void (*goodbyePointer)(char *);
    
-   pointer = &printHello;
+   helloPointer = &printHello;
+   goodbyePointer = &printGoodbye;
    
-   pointer();
+   talk(helloPointer, "test");
+   talk(goodbyePointer, "test");
    
-   printf("pointer: %x\n", pointer);
+   //pointer("test");
+   
+   //pointer("test2");
+   
+   //printf("pointer: %p\n", pointer);
    
    return 0;
 }
